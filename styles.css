@@ -1,3 +1,21 @@
 body{
     text-align: center;
 }
+.score{
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    background-color: antiquewhite;
+    width: 30%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.reset{
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}

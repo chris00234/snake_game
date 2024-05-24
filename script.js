@@ -17,6 +17,8 @@ let foodY;
 
 let gameOver = false;
 
+let score = 0;
+
 window.onload = function(){
     board = document.getElementById('board');
     board.height = total_row * blockSize;
@@ -28,6 +30,8 @@ window.onload = function(){
     document.addEventListener("keyup", changeDirection); //for movement
     setInterval(update, 1000/10); //set snake speed
 }
+
+let score_dic = document.getElementById('score');
 
 function update(){
     if(gameOver){
@@ -44,6 +48,8 @@ function update(){
 
     if(snakeX == foodX && snakeY == foodY){
         snakeBody.push([snakeX, snakeY]);
+        score++;
+        score_dic.textContent = score;
         placeFood();
     }
 
@@ -108,4 +114,21 @@ function changeDirection(e){
 function placeFood(){
     foodX = Math.floor(Math.random() * total_col) * blockSize;
     foodY = Math.floor(Math.random() * total_row) * blockSize;
+}
+
+function reset(){
+    snakeX = blockSize * 5;
+    snakeY = blockSize * 5;
+
+    speedX = 0;
+    speedY = 0;
+
+    score = 0;
+    score_dic.textContent = score;
+
+    snakeBody = [];
+
+    placeFood();
+
+    gameOver = false;
 }
